@@ -1,1 +1,43 @@
-I need to assign the course data to a variable
+--Notes:
+I think I'm already loading my api into my page
+I could create an 18 hole table, then have styling remove that when 9 hole is
+  selected. Would default to 9 hole.
+
+--Questions:
+I'm confused about step 6?
+Do i need to be able to select the 18 hole option?
+How do I make it so players can input their scores into the table?
+
+--things I need help with:
+
+I need to add ID's onto created elements
+I need help loading the api data into objects. example: loading the yardage,
+  adding all the yardage values together and adding the sum value into a td element
+I need to add input functionality so players can add their own score
+I need to get the out score to update
+
+Project Golf Scorecard App:
+
+Required:
+
+1. Required: Create the main scoring table with columns for each hole, 
+out score, in score, and total score.
+
+2. Required: Use the golf data API to bring in the data for the golf course(s).
+
+3. Required: Create a row that loads yardage, handicap, and par for each hole 
+from the course data and displays it in the table. The row should have a 
+"total" column for the sum of all 18 holes.
+
+4. Required: Create a row to keep track of a player's score. This row should allow users to enter their name and a score for each hole. When a user types in a score for a hole, the out, in, and total columns should update
+
+5. Required: Add some CSS to style the card to look like an actual golf card.
+
+6. Required: Allow users to select which tee they will be using (Men's, Women's, Pro, Amateur, etc.). All players will play from the same tee.
+
+7. Required: Allow up to four players in your scorecard.
+
+8. Required: Minimum of 5+ commits
+
+
+I need to assign ID's to created tr elements

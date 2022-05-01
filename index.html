@@ -10,12 +10,13 @@
     <div class="container">
       <!--Player select dropdown-->
         <label for="players">Select players:</label>
-        <select name="players" id="users">
+        <select name="players" id="player-select-element">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
         </select>
+        <button type="button" onclick="userSelect()">Add Players</button>
       <!--Course select dropdown-->
         <label for="course">Select course:</label>
         <select name="course" id="course">
@@ -24,7 +25,7 @@
           <option value="3">Spanish Oaks</option>
         </select>
         
-        <table class="table table-bordered table-striped">
+        <table id="scorecard-table" class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th scope="col">Hole</th>

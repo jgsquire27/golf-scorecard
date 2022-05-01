@@ -39,7 +39,32 @@ async function getSingleCourseData(id){
     coursesWithAllData.push(courseItemWithAllData)
   }
   console.log(coursesWithAllData);
- }())
+ }()/*immediately invokes function after declaration*/)
+
+
+ function userSelect() {
+  let x = document.getElementById("player-select-element").value;
+  console.log(x)
+  for (let i = 0; i < x; i++) {
+    let tableRow = document.createElement("tr");
+    //I need to append child (tr elements) to id: scorecard-table
+    let tableHead = document.createElement("th");
+    //I need to append child (th elements) to created tr elements
+
+    for (let i = 0; i < 10; i++){
+      //I need to add create td elements
+
+      //I need to append child (td elements) to created tr elements
+    }
+  }
+
+
+  /*var option = document.createElement("option");
+  option.value = "hand";
+  console.log(option.value);
+  option.text = "Hand";*/
+}
+
 
 let users = document.getElementById('users').value;
 const ten = 10;
