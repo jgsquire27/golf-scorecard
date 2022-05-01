@@ -2,3 +2,11 @@ body{
   background-color: aliceblue;
   
 }
+
+input[id^="table-name-input-"] {
+  font-weight: bold;
+  border-width: 0 0 2px 0;
+  border-color: lightgray;
+  box-shadow: none;
+  outline:none;
+}

@@ -3,18 +3,23 @@ I think I'm already loading my api into my page
 I could create an 18 hole table, then have styling remove that when 9 hole is
   selected. Would default to 9 hole.
 
+--To Do:
+add select element for tee that changes par and yardage
+  work on my player select dropdown
+
+--Issues:
+added element bootstrap styling
+
 --Questions:
-I'm confused about step 6?
-Do i need to be able to select the 18 hole option?
-How do I make it so players can input their scores into the table?
+How do i add bootstrap styling to added elements?
 
 --things I need help with:
 
-I need to add ID's onto created elements
-I need help loading the api data into objects. example: loading the yardage,
+xxI need to add ID's onto created elements(tr, th, td) and load api data into    elements
+xxI need help loading the api data into objects. example: loading the yardage,
   adding all the yardage values together and adding the sum value into a td element
-I need to add input functionality so players can add their own score
-I need to get the out score to update
+xxI need to add input functionality so players can add their own score
+xxI need to get the out score to update
 
 Project Golf Scorecard App:
 

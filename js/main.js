@@ -30,6 +30,7 @@ async function getSingleCourseData(id){
  (async function getInitialData() {
   let courses = await getAvailableCourses();
   let coursesWithAllData = [];
+  //this is where my
   for(const courseItem of courses) {
     const additionalCourseData = await getSingleCourseData(courseItem.id);
     const courseItemWithAllData = {
@@ -41,47 +42,63 @@ async function getSingleCourseData(id){
   console.log(coursesWithAllData);
  }()/*immediately invokes function after declaration*/)
 
+ function updateYardage(e){
+  console.log(e.target.value);
+  
+}
+
+let scorecardTable = document.getElementById('scorecard-table');
+let tableBody = document.getElementById('parentElement');
+let holesValue = document.getElementById('holes-select-element').value;
 
  function userSelect() {
   let x = document.getElementById("player-select-element").value;
-  console.log(x)
+  
+  //This assigns the selected option value to x
   for (let i = 0; i < x; i++) {
+    console.log(x);
     let tableRow = document.createElement("tr");
-    //I need to append child (tr elements) to id: scorecard-table
     let tableHead = document.createElement("th");
-    //I need to append child (th elements) to created tr elements
+    let tableNameInput = document.createElement("input");
+    //This creates elements and assigns them to vaiables
+    tableRow.setAttribute('id', `table-row-${i}`);
+    tableHead.setAttribute('id', `table-head-${i}`);
+    tableNameInput.setAttribute('id', `table-name-input-${i}`);
+    //This creates dynamic ID's for created elements
+    tableBody.appendChild(tableRow);
+    tableRow.appendChild(tableHead);
+    tableHead.appendChild(tableNameInput);
+    //This tells the created elements where to go
 
-    for (let i = 0; i < 10; i++){
+    for (let j = 0; j < 10; j++){
+      let tableData = document.createElement("td");
+      let tableInput = document.createElement("input");
+
+      tableData.setAttribute('id', `table-data-${i}-${j}`);
+      tableInput.setAttribute('id', `table-input-${i}-${j}`);
+      
+      tableRow.appendChild(tableData);
+      tableData.appendChild(tableInput);
+      //this creates unique elements for each created td element
+
       //I need to add create td elements
 
       //I need to append child (td elements) to created tr elements
     }
   }
 
-
-  /*var option = document.createElement("option");
-  option.value = "hand";
-  console.log(option.value);
-  option.text = "Hand";*/
 }
 
+function selectHoles(){
+  console.log(holesValue);
 
-let users = document.getElementById('users').value;
-const ten = 10;
-let yardage = [];
-let par = [];
-let handicap = [];
+}
 
-function addUsers(){
-  for(i = 0; i++; i = users){
-    let userRow = document.createElement('tr');
-    parentElement.appendChild(userRow);
-    let userHead = document.createElement('th');
-    userRow.appendChild(userHead);
-    for(i = 0; i++; i = ten){
-      let userScore = document.createElement('td');
-      userRow.appendChild(userScore);
-    }
-  }
-};
+// let users = document.getElementById('users').value;
+// const ten = 10;
+// let yardage = [];
+// let par = [];
+// let handicap = [];
+
+
 

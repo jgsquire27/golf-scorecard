@@ -7,25 +7,44 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <!--Player select dropdown-->
-        <label for="players">Select players:</label>
-        <select name="players" id="player-select-element">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
+        <label for="players">Players:</label>
+        <select name="players" id="player-select-element" onchange="userSelect()">
+          <option value="0" >Select</option>
+          <option value="1" >1</option>
+          <option value="2" >2</option>
+          <option value="3" >3</option>
+          <option value="4" >4</option>
         </select>
-        <button type="button" onclick="userSelect()">Add Players</button>
+
       <!--Course select dropdown-->
-        <label for="course">Select course:</label>
+        <label for="course">Course:</label>
         <select name="course" id="course">
+          <option value="0" >Select</option>
           <option value="1">Fox Hollow</option>
           <option value="2">Thanksgiving Point</option>
           <option value="3">Spanish Oaks</option>
         </select>
+
+        <!--Hole select dropdown-->
+        <label for="holes">Holes:</label>
+        <select name="holes" id="holes-select-element" onchange="selectHoles()">
+          <option value="9" selected>Select</option>
+          <option value="9">9</option>
+          <option value="18">18</option>
+        </select>
+
+        <!--Tee select dropdown-->
+        <label for="tee">Select tee:</label>
+        <select name="tee" id="tee-select-element">
+          <option value="1">Black</option>
+          <option value="2">Blue</option>
+          <option value="3">White</option>
+          <option value="4">Red</option>
+        </select>
         
-        <table id="scorecard-table" class="table table-bordered table-striped">
+        <table id="scorecard-table" class="container-fluid col-table table-bordered table-striped">
             <thead>
             <tr>
                 <th scope="col">Hole</th>
@@ -57,6 +76,7 @@
             </tr>
             <tr>
                 <th scope="row">Par</th>
+                <td><input type='number' onblur="updateYardage(event)"></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -66,23 +86,13 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">Handicap</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>                
             </tr>
             </tbody>
         </table>
     </div>  
+    <!--<input type='number' onblur="updateYardage(event)">-->
+    <!--this allows users to input their strokes-->
   </body>
 </html>
+
+
