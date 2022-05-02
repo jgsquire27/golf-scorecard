@@ -42,18 +42,16 @@ async function getSingleCourseData(id){
   console.log(coursesWithAllData);
  }()/*immediately invokes function after declaration*/)
 
- function updateYardage(e){
-  console.log(e.target.value);
-  
-}
+
 
 let scorecardTable = document.getElementById('scorecard-table');
 let tableBody = document.getElementById('parentElement');
-let holesValue = document.getElementById('holes-select-element').value;
+var holesValue = document.getElementById('holes-select-element').value;
 
  function userSelect() {
   let x = document.getElementById("player-select-element").value;
-  
+  tableBody.innerHTML = '';
+
   //This assigns the selected option value to x
   for (let i = 0; i < x; i++) {
     console.log(x);
@@ -70,35 +68,67 @@ let holesValue = document.getElementById('holes-select-element').value;
     tableHead.appendChild(tableNameInput);
     //This tells the created elements where to go
 
-    for (let j = 0; j < 10; j++){
+    for (let j = 0; j < holesValue; j++){
       let tableData = document.createElement("td");
-      let tableInput = document.createElement("input");
+      if(j === holesValue-1){
+        tableData.setAttribute('id', `total-${i}`)
 
-      tableData.setAttribute('id', `table-data-${i}-${j}`);
-      tableInput.setAttribute('id', `table-input-${i}-${j}`);
+      }else{
+        let tableInput = document.createElement("input");
+        tableInput.setAttribute('id', `table-input-${i}-${j}`);
+        tableData.appendChild(tableInput);      
+        tableInput.setAttribute('type', `number`);
+        tableInput.setAttribute('onblur', 'strokeSum()');
+        tableInput.setAttribute('name', `total-${i}`);
+      }
       
       tableRow.appendChild(tableData);
-      tableData.appendChild(tableInput);
-      //this creates unique elements for each created td element
 
-      //I need to add create td elements
-
-      //I need to append child (td elements) to created tr elements
     }
+
   }
 
 }
 
-function selectHoles(){
+function strokeSum(){
+  let arrZero = document.getElementsByName('total-0');
+  let arrOne = document.getElementsByName('total-1');
+  let arrTwo = document.getElementsByName('total-2');
+  let arrThree = document.getElementsByName('total-3');
+  let totalZero = 0;
+  let totalOne = 0;
+  let totalTwo = 0;
+  let totalThree = 0;
+  for(let k = 0; k < arrZero.length; k++){
+    if(parseInt(arrZero[k].value))
+    totalZero += parseInt(arrZero[k].value);
+  }
+  for(let l = 0; l < arrZero.length; l++){
+    if(parseInt(arrOne[l].value))
+    totalOne += parseInt(arrOne[l].value);
+  }
+  for(let m = 0; m < arrTwo.length; m++){
+    if(parseInt(arrTwo[m].value))
+    totalTwo += parseInt(arrTwo[m].value);
+
+  for(let n = 0; n < arrThree.length; n++){
+    if(parseInt(arrThree[n].value))
+    totalThree += parseInt(arrThree[n].value);
+  }
+  document.getElementById('total-0').innerHTML = totalZero;
+  document.getElementById('total-1').innerHTML = totalOne;
+  document.getElementById('total-2').innerHTML = totalTwo;
+  document.getElementById('total-3').innerHTML = totalThree;
+}
+
+function selectHoles(e){
+  holesValue = parseInt(e.target.value);
   console.log(holesValue);
 
 }
-
+}
 // let users = document.getElementById('users').value;
 // const ten = 10;
 // let yardage = [];
 // let par = [];
 // let handicap = [];
-
-
-
