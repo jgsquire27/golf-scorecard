@@ -20,18 +20,16 @@
 
       <!--Course select dropdown-->
         <label for="course">Course:</label>
-        <select name="course" id="course">
-          <option value="0" >Select</option>
-          <option value="1">Fox Hollow</option>
-          <option value="2">Thanksgiving Point</option>
-          <option value="3">Spanish Oaks</option>
+        <select name="course" id="course" onchange="populateYardParArray()">
+          <option value="0" selected>Fox Hollow</option>
+          <option value="1">Thanksgiving Point</option>
+          <option value="2">Spanish Oaks</option>
         </select>
 
         <!--Hole select dropdown-->
         <label for="holes">Holes:</label>
         <select name="holes" id="holes-select-element" onchange="selectHoles(event)">
-          <option value="9">Select</option>
-          <option value="9">9</option>
+          <option value="9" selected>9</option>
           <option value="18">18</option>
         </select>
 
@@ -43,53 +41,60 @@
           <option value="3">White</option>
           <option value="4">Red</option>
         </select>
-        
+
+        <table id="yardage-and-par-table" class="container-fluid col-table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Hole</th>
+              <th scope="col">1</th>
+              <th scope="col">2</th>
+              <th scope="col">3</th>
+              <th scope="col">4</th>
+              <th scope="col">5</th>
+              <th scope="col">6</th>
+              <th scope="col">7</th>
+              <th scope="col">8</th>
+              <th scope="col">9</th>
+              <th scope="col">Out</th>
+          </tr>
+        </thead>
+          <tr>
+            <th scope="row">Yardage</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+          <th scope="row">Par</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+          
+        </table>        
         <table id="scorecard-table" class="container-fluid col-table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Hole</th>
-                <th scope="col">1</th>
-                <th scope="col">2</th>
-                <th scope="col">3</th>
-                <th scope="col">4</th>
-                <th scope="col">5</th>
-                <th scope="col">6</th>
-                <th scope="col">7</th>
-                <th scope="col">8</th>
-                <th scope="col">9</th>
-                <th scope="col">Out</th>
-            </tr>
-            </thead>
+            
             <tbody id="parentElement">
-            <tr>
-                <th scope="row">Yardage</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">Par</th>
-                <td><input type='number' onblur="updateYardage(event)"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            
+            
             </tbody>
         </table>
     </div>  
+    <!-- <input type='number' onblur="updateYardage(event)"> -->
     <!--<input type='number' onblur="updateYardage(event)">-->
     <!--this allows users to input their strokes-->
   </body>

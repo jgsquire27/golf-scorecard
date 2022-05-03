@@ -21,7 +21,7 @@ async function getAvailableCourses() {
   return data.courses;
  }
 
-async function getSingleCourseData(id){
+async function getSingleCourseData(id){ 
  const url = `https://golf-courses-api.herokuapp.com/courses/${id}`;
  const data = await getDataFromURL(url);
   return data.data;
@@ -39,8 +39,17 @@ async function getSingleCourseData(id){
     }
     coursesWithAllData.push(courseItemWithAllData)
   }
+  populateYardParArray();
   console.log(coursesWithAllData);
  }()/*immediately invokes function after declaration*/)
+
+ function populateYardParArray() {
+   let parArray = [];
+   let yardArray = [];
+   let courseNumber = document.getElementById('course').value;
+   
+   
+ }
 
 
 
@@ -78,7 +87,7 @@ var holesValue = document.getElementById('holes-select-element').value;
         tableInput.setAttribute('id', `table-input-${i}-${j}`);
         tableData.appendChild(tableInput);      
         tableInput.setAttribute('type', `number`);
-        tableInput.setAttribute('onblur', 'strokeSum()');
+        tableInput.setAttribute('onblur', `strokeSum(${i})`);
         tableInput.setAttribute('name', `total-${i}`);
       }
       
@@ -90,35 +99,18 @@ var holesValue = document.getElementById('holes-select-element').value;
 
 }
 
-function strokeSum(){
-  let arrZero = document.getElementsByName('total-0');
-  let arrOne = document.getElementsByName('total-1');
-  let arrTwo = document.getElementsByName('total-2');
-  let arrThree = document.getElementsByName('total-3');
-  let totalZero = 0;
-  let totalOne = 0;
-  let totalTwo = 0;
-  let totalThree = 0;
-  for(let k = 0; k < arrZero.length; k++){
-    if(parseInt(arrZero[k].value))
-    totalZero += parseInt(arrZero[k].value);
-  }
-  for(let l = 0; l < arrZero.length; l++){
-    if(parseInt(arrOne[l].value))
-    totalOne += parseInt(arrOne[l].value);
-  }
-  for(let m = 0; m < arrTwo.length; m++){
-    if(parseInt(arrTwo[m].value))
-    totalTwo += parseInt(arrTwo[m].value);
-
-  for(let n = 0; n < arrThree.length; n++){
-    if(parseInt(arrThree[n].value))
-    totalThree += parseInt(arrThree[n].value);
-  }
-  document.getElementById('total-0').innerHTML = totalZero;
-  document.getElementById('total-1').innerHTML = totalOne;
-  document.getElementById('total-2').innerHTML = totalTwo;
-  document.getElementById('total-3').innerHTML = totalThree;
+function strokeSum(i){
+  try {
+    let arr = document.getElementsByName(`total-${i}`);
+    let total = 0;
+    for(let k = 0; k < arr.length; k++){
+      if(parseInt(arr[k].value))
+        total += parseInt(arr[k].value);
+    }
+      document.getElementById(`total-${i}`).innerHTML = total;
+    } catch (error) {
+      console.log(error);
+  } 
 }
 
 function selectHoles(e){
@@ -126,7 +118,7 @@ function selectHoles(e){
   console.log(holesValue);
 
 }
-}
+
 // let users = document.getElementById('users').value;
 // const ten = 10;
 // let yardage = [];
